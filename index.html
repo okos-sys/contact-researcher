@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Researcher — EU & UK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#f7f6f3;--surface:#fff;--border:#e4e2dc;--border-md:#ccc9c1;--text:#18180f;--muted:#6b6a62;--faint:#a3a29b;--accent:#1a56db;--accent-bg:#eff4ff;--green:#15803d;--green-bg:#dcfce7;--amber:#b45309;--amber-bg:#fef3c7;--red:#b91c1c;--red-bg:#fee2e2;--r:8px;--rl:12px}
+html{font-size:14px}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.55}
+.shell{max-width:1200px;margin:0 auto;padding:0 28px 100px}
+header{padding:36px 0 26px;border-bottom:1px solid var(--border);margin-bottom:28px;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+header h1{font-size:22px;font-weight:600;letter-spacing:-.4px}
+header .sub{font-size:12px;color:var(--muted);margin-top:4px}
+.src-pills{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:20px 24px;margin-bottom:14px}
+.ctitle{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:14px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px}
+.fld{display:flex;flex-direction:column;gap:5px}
+.fld label{font-size:11px;font-weight:500;color:var(--muted)}
+.fld input,.fld select{height:36px;border:1px solid var(--border);border-radius:var(--r);padding:0 10px;font-size:13px;font-family:inherit;color:var(--text);background:var(--surface);width:100%;transition:border-color .15s}
+.fld input:focus,.fld select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(26,86,219,.1)}
+.src-toggles{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin-top:4px}
+.src-toggle{display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--border);border-radius:var(--r);cursor:pointer;transition:all .15s;user-select:none}
+.src-toggle:hover{border-color:var(--border-md);background:var(--bg)}
+.src-toggle.on{border-color:var(--accent);background:var(--accent-bg)}
+.src-toggle input[type=checkbox]{width:14px;height:14px;accent-color:var(--accent);flex-shrink:0}
+.src-toggle .sname{font-size:12px;font-weight:500}
+.src-toggle .sdesc{font-size:10px;color:var(--muted);margin-top:1px}
+.src-toggle.on .sdesc{color:#1e40af}
+.key-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.key-note{font-size:11px;color:var(--muted);margin-top:6px;line-height:1.5}
+.runbtn{width:100%;padding:12px;background:var(--text);color:#fff;border:none;border-radius:var(--r);font-size:14px;font-weight:500;font-family:inherit;cursor:pointer;margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:8px;transition:opacity .15s}
+.runbtn:hover{opacity:.84}.runbtn:disabled{opacity:.32;cursor:not-allowed}
+.smbtn{padding:5px 12px;font-size:12px;font-family:inherit;border:1px solid var(--border-md);border-radius:var(--r);background:var(--surface);color:var(--text);cursor:pointer;transition:background .12s}
+.smbtn:hover{background:var(--bg)}
+.pill{display:inline-flex;align-items:center;font-size:10px;font-weight:500;padding:2px 8px;border-radius:20px;white-space:nowrap}
+.pg{background:#f0ede8;color:var(--muted)}.pk{background:var(--green-bg);color:var(--green)}.pa{background:var(--amber-bg);color:var(--amber)}
+.prog{height:3px;background:var(--border);border-radius:2px;overflow:hidden;margin-bottom:12px;display:none}
+.pf{height:100%;background:var(--accent);border-radius:2px;transition:width .4s ease;width:0}
+.logbox{background:#f5f4f0;border:1px solid var(--border);border-radius:var(--r);padding:10px 14px;font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);max-height:200px;overflow-y:auto;line-height:1.7;margin-bottom:20px}
+.le{display:flex;gap:10px}
+.lts{color:var(--faint);flex-shrink:0}
+.lok{color:var(--green)}.lerr{color:var(--red)}.lwarn{color:var(--amber)}
+.metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:20px}
+.met{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px}
+.mv{font-size:24px;font-weight:600;line-height:1}
+.ml{font-size:10px;color:var(--muted);margin-top:4px}
+.tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:14px;gap:0;overflow-x:auto}
+.tab{padding:7px 16px;font-size:12px;font-family:inherit;color:var(--muted);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;margin-bottom:-1px;white-space:nowrap;transition:color .12s}
+.tab:hover{color:var(--text)}.tab.on{color:var(--text);border-bottom-color:var(--text);font-weight:500}
+.tscroll{overflow-x:auto;border:1px solid var(--border);border-radius:var(--rl)}
+table{width:100%;border-collapse:collapse;font-size:12px}
+thead th{padding:8px 12px;text-align:left;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);background:var(--bg);border-bottom:1px solid var(--border);white-space:nowrap}
+tbody tr{border-bottom:1px solid var(--border);transition:background .1s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:#faf9f6}
+tbody td{padding:8px 12px;vertical-align:middle}
+.eml{font-family:'DM Mono',monospace;font-size:10px;color:var(--accent)}
+.sbadge{font-size:9px;padding:2px 6px;border-radius:4px;border:1px solid var(--border);color:var(--muted);font-weight:500;white-space:nowrap}
+.src-apollo{background:#fef3c7;border-color:#fde68a;color:#92400e}
+.src-hunter{background:#dcfce7;border-color:#bbf7d0;color:#166534}
+.src-oc{background:#eff4ff;border-color:#bfdbfe;color:#1e40af}
+.src-gp{background:#f0fdf4;border-color:#bbf7d0;color:#15803d}
+.src-cb{background:#fdf4ff;border-color:#e9d5ff;color:#7e22ce}
+.src-legal{background:#fff7ed;border-color:#fed7aa;color:#c2410c}
+.vbadge{font-size:9px;padding:2px 7px;border-radius:12px;font-weight:500}
+.vok{background:var(--green-bg);color:var(--green)}.vwarn{background:var(--amber-bg);color:var(--amber)}.verr{background:var(--red-bg);color:var(--red)}.vunk{background:#f0ede8;color:var(--muted)}
+.cdot{width:6px;height:6px;border-radius:50%;display:inline-block;margin-right:4px}
+.dg{background:#22c55e}.da{background:#f59e0b}.dr{background:#ef4444}.dz{background:#d1d5db}
+.ebar{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px}
+.ebar span{font-size:11px;color:var(--muted)}
+.spin{width:13px;height:13px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:sp .7s linear infinite;display:inline-block}
+@keyframes sp{to{transform:rotate(360deg)}}
+.dir-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.dir-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px}
+.dir-card h4{font-size:12px;font-weight:600;margin-bottom:4px}
+.dir-card p{font-size:11px;color:var(--muted);margin-bottom:6px}
+.dir-card a{font-size:11px;color:var(--accent)}
+.notice{background:var(--accent-bg);border:1px solid #bfdbfe;border-radius:var(--r);padding:10px 14px;font-size:11px;color:#1e40af;margin-bottom:12px}
+@media(max-width:760px){.g3,.g4,.key-grid{grid-template-columns:1fr 1fr}.metrics{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:500px){.g2,.g3,.g4,.key-grid{grid-template-columns:1fr}.metrics{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<header>
+  <div>
+    <h1>Contact Researcher — EU &amp; UK</h1>
+    <div class="sub">Apollo · Hunter · OpenCorporates · Google Places · Clearbit · Legal 500 · Chambers · Bar Associations</div>
+    <div class="src-pills" id="active-pills"></div>
+  </div>
+</header>
+
+<div class="card">
+  <div class="ctitle">Data sources</div>
+  <div class="src-toggles" id="src-toggles">
+    <label class="src-toggle on" data-src="apollo"><input type="checkbox" checked><div><div class="sname">Apollo.io</div><div class="sdesc">Companies + people search</div></div></label>
+    <label class="src-toggle on" data-src="hunter"><input type="checkbox" checked><div><div class="sname">Hunter.io</div><div class="sdesc">Email discovery + verify</div></div></label>
+    <label class="src-toggle on" data-src="opencorporates"><input type="checkbox" checked><div><div class="sname">OpenCorporates</div><div class="sdesc">Free · EU/UK registries</div></div></label>
+    <label class="src-toggle on" data-src="googleplaces"><input type="checkbox" checked><div><div class="sname">Google Places</div><div class="sdesc">Local business discovery</div></div></label>
+    <label class="src-toggle on" data-src="clearbit"><input type="checkbox" checked><div><div class="sname">Clearbit</div><div class="sdesc">Company enrichment</div></div></label>
+    <label class="src-toggle on" data-src="legal"><input type="checkbox" checked><div><div class="sname">Legal directories</div><div class="sdesc">Legal 500 · Chambers · Bar assocs</div></div></label>
+  </div>
+</div>
+
+<div class="card">
+  <div class="ctitle">API keys (optional keys unlock more data)</div>
+  <div class="key-grid">
+    <div class="fld"><label>Google Places API key</label><input type="password" id="gk" placeholder="AIza… (optional)"></div>
+    <div class="fld"><label>Clearbit API key</label><input type="password" id="ck" placeholder="sk_… (optional)"></div>
+    <div class="fld"><label>Apollo.io API key</label><input type="password" id="apk" placeholder="hardcoded — override here"></div>
+  </div>
+  <div class="key-note">Apollo + Hunter keys are pre-configured. Google Places key: get one free at <a href="https://console.cloud.google.com" target="_blank" style="color:var(--accent)">console.cloud.google.com</a> ($200/mo free credit). Clearbit: <a href="https://clearbit.com" target="_blank" style="color:var(--accent)">clearbit.com</a> (free autocomplete works without key).</div>
+</div>
+
+<div class="card">
+  <div class="ctitle">Search parameters</div>
+  <div class="g3" style="margin-bottom:12px">
+    <div class="fld"><label>Country</label>
+      <select id="country" onchange="onParamChange()">
+        <option value="">— select country —</option>
+        <optgroup label="Southern Europe">
+          <option value="Cyprus">Cyprus</option><option value="Malta">Malta</option>
+          <option value="Greece">Greece</option><option value="Italy">Italy</option>
+          <option value="Spain">Spain</option><option value="Portugal">Portugal</option>
+        </optgroup>
+        <optgroup label="Western Europe">
+          <option value="Germany">Germany</option><option value="France">France</option>
+          <option value="Netherlands">Netherlands</option><option value="Belgium">Belgium</option>
+          <option value="Austria">Austria</option><option value="Ireland">Ireland</option>
+          <option value="Luxembourg">Luxembourg</option>
+        </optgroup>
+        <optgroup label="Northern Europe">
+          <option value="Sweden">Sweden</option><option value="Denmark">Denmark</option>
+          <option value="Finland">Finland</option><option value="Norway">Norway</option>
+        </optgroup>
+        <optgroup label="Eastern Europe">
+          <option value="Poland">Poland</option><option value="Czech Republic">Czechia</option>
+          <option value="Hungary">Hungary</option><option value="Romania">Romania</option>
+          <option value="Bulgaria">Bulgaria</option><option value="Estonia">Estonia</option>
+          <option value="Latvia">Latvia</option><option value="Lithuania">Lithuania</option>
+        </optgroup>
+        <optgroup label="United Kingdom"><option value="United Kingdom">United Kingdom</option></optgroup>
+      </select>
+    </div>
+    <div class="fld"><label>Industry</label>
+      <select id="industry" onchange="onParamChange()">
+        <option value="">— select industry —</option>
+        <optgroup label="Professional services">
+          <option value="Legal Services">Legal advisory</option>
+          <option value="Accounting">Accounting &amp; audit</option>
+          <option value="Management Consulting">Management consulting</option>
+          <option value="Financial Services">Financial advisory</option>
+          <option value="Human Resources">HR consulting</option>
+        </optgroup>
+        <optgroup label="Finance">
+          <option value="Private Equity">Private equity</option>
+          <option value="Venture Capital & Private Equity">Venture capital</option>
+          <option value="Investment Management">Asset management</option>
+          <option value="Insurance">Insurance</option>
+        </optgroup>
+        <optgroup label="Technology">
+          <option value="Computer Software">Software development</option>
+          <option value="Information Technology and Services">IT consulting</option>
+          <option value="Computer & Network Security">Cybersecurity</option>
+        </optgroup>
+        <optgroup label="Real estate">
+          <option value="Real Estate">Real estate</option>
+          <option value="Construction">Construction</option>
+          <option value="Architecture & Planning">Architecture</option>
+        </optgroup>
+        <optgroup label="Other">
+          <option value="Marketing and Advertising">Marketing agency</option>
+          <option value="Logistics and Supply Chain">Logistics</option>
+          <option value="Health, Wellness and Fitness">Healthcare</option>
+          <option value="Education Management">Education</option>
+        </optgroup>
+      </select>
+    </div>
+    <div class="fld"><label>City / Region (optional)</label>
+      <input type="text" id="city" placeholder="e.g. Nicosia, London, Berlin">
+    </div>
+  </div>
+  <div class="g4">
+    <div class="fld"><label>Company size</label>
+      <select id="size">
+        <option value="">Any size</option>
+        <option value="1,9">Micro (1–9)</option>
+        <option value="10,49">Small (10–49)</option>
+        <option value="50,249">Medium (50–249)</option>
+        <option value="250,1000">Large (250–1000)</option>
+      </select>
+    </div>
+    <div class="fld"><label>Ownership type</label>
+      <select id="ownership">
+        <option value="">Any</option>
+        <option value="privately_held">Privately held</option>
+        <option value="public_company">Public company</option>
+        <option value="partnership">Partnership</option>
+      </select>
+    </div>
+    <div class="fld"><label>Title keywords</label>
+      <input type="text" id="titlekw" placeholder="e.g. partner, director, founder">
+    </div>
+    <div class="fld"><label>Max companies per source</label>
+      <select id="maxo">
+        <option value="5">5 per source</option>
+        <option value="10" selected>10 per source</option>
+        <option value="20">20 per source</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<button class="runbtn" id="rbtn" onclick="run()" disabled>Select country and industry to search</button>
+<div class="prog" id="prog"><div class="pf" id="pf"></div></div>
+<div class="logbox" id="log"><div class="le"><span class="lts">—</span><span>Ready. Select parameters above and click search.</span></div></div>
+
+<div id="res" style="display:none">
+  <div class="metrics">
+    <div class="met"><div class="mv" id="m-co">0</div><div class="ml">Companies</div></div>
+    <div class="met"><div class="mv" id="m-ct">0</div><div class="ml">Contacts</div></div>
+    <div class="met"><div class="mv" id="m-em">0</div><div class="ml">Emails found</div></div>
+    <div class="met"><div class="mv" id="m-vf">0</div><div class="ml">Verified</div></div>
+    <div class="met"><div class="mv" id="m-src">0</div><div class="ml">Sources used</div></div>
+  </div>
+  <div class="tabs">
+    <button class="tab on" onclick="showTab('contacts',this)">Contacts</button>
+    <button class="tab" onclick="showTab('companies',this)">Companies</button>
+    <button class="tab" onclick="showTab('directories',this)">Directories</button>
+    <button class="tab" onclick="showTab('raw',this)">Raw JSON</button>
+  </div>
+
+  <div id="tab-contacts">
+    <div class="ebar">
+      <span id="ct-sum"></span>
+      <div style="display:flex;gap:6px">
+        <button class="smbtn" onclick="exp('contacts')">Export contacts CSV</button>
+        <button class="smbtn" onclick="exp('companies')">Export companies CSV</button>
+      </div>
+    </div>
+    <div class="tscroll"><table>
+      <thead><tr><th>Company</th><th>Name</th><th>Title</th><th>Email</th><th>Conf</th><th>Verified</th><th>Phone</th><th>Source</th><th>Links</th></tr></thead>
+      <tbody id="ctb"></tbody>
+    </table></div>
+  </div>
+
+  <div id="tab-companies" style="display:none">
+    <div class="tscroll"><table>
+      <thead><tr><th>Company</th><th>Domain</th><th>Address</th><th>Country</th><th>Employees</th><th>Type</th><th>Founded</th><th>Contacts</th><th>Source</th></tr></thead>
+      <tbody id="cob"></tbody>
+    </table></div>
+  </div>
+
+  <div id="tab-directories" style="display:none">
+    <p style="font-size:12px;color:var(--muted);margin-bottom:14px">Official directories for your selected country. Click to search manually for deeper coverage.</p>
+    <div class="dir-grid" id="dir-grid"></div>
+  </div>
+
+  <div id="tab-raw" style="display:none">
+    <pre id="rp" style="font-size:10px;font-family:'DM Mono',monospace;color:var(--muted);white-space:pre-wrap;word-break:break-all;background:#f5f4f0;border:1px solid var(--border);border-radius:var(--r);padding:14px;max-height:500px;overflow-y:auto"></pre>
+  </div>
+</div>
+
+</div>
+<script>
+// ── hardcoded keys ──────────────────────────────────────────────────────────
+const APOLLO_KEY = 'UyxO5lJCBNehIXO6a77uFA';
+const HUNTER_KEY = 'd78442fe8ddb43a0bdad71bc7a494a621f3c495a';
+
+// ── state ───────────────────────────────────────────────────────────────────
+let contacts = [], companies = [], directories = [], raw = {};
+
+// ── helpers ─────────────────────────────────────────────────────────────────
+function ts() { return new Date().toTimeString().slice(0,8); }
+function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+function gk() { return document.getElementById('gk').value.trim(); }
+function cbk() { return document.getElementById('ck').value.trim(); }
+function apk() { return document.getElementById('apk').value.trim() || APOLLO_KEY; }
+
+function lg(msg, t='') {
+  const b = document.getElementById('log');
+  const d = document.createElement('div'); d.className = 'le';
+  d.innerHTML = `<span class="lts">${ts()}</span><span class="${t==='ok'?'lok':t==='err'?'lerr':t==='warn'?'lwarn':''}">${esc(msg)}</span>`;
+  b.appendChild(d); b.scrollTop = b.scrollHeight;
+}
+function sp(p) { document.getElementById('prog').style.display=''; document.getElementById('pf').style.width=Math.min(100,Math.round(p))+'%'; }
+
+function srcEnabled(name) {
+  const el = document.querySelector(`.src-toggle[data-src="${name}"] input`);
+  return el ? el.checked : false;
+}
+
+// source toggle behaviour
+document.querySelectorAll('.src-toggle').forEach(label => {
+  label.addEventListener('click', () => {
+    const cb = label.querySelector('input');
+    cb.checked = !cb.checked;
+    label.classList.toggle('on', cb.checked);
+  });
+});
+
+function onParamChange() {
+  const c = document.getElementById('country').value;
+  const i = document.getElementById('industry').value;
+  const btn = document.getElementById('rbtn');
+  btn.disabled = !(c && i);
+  btn.textContent = (c && i) ? 'Search for contacts →' : 'Select country and industry to search';
+}
+
+function showTab(n, el) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('on')); el.classList.add('on');
+  ['contacts','companies','directories','raw'].forEach(id => {
+    document.getElementById('tab-'+id).style.display = id===n ? '' : 'none';
+  });
+}
+
+// ── API calls ────────────────────────────────────────────────────────────────
+async function apolloOrgs() {
+  const country = document.getElementById('country').value;
+  const industry = document.getElementById('industry').value;
+  const sz = document.getElementById('size').value;
+  const own = document.getElementById('ownership').value;
+  const maxo = parseInt(document.getElementById('maxo').value);
+  // Apollo v1 search — organization_locations uses country names, industries uses exact strings
+  const body = {
+    page: 1,
+    per_page: maxo,
+    organization_locations: [country],
+    q_organization_keyword_tags: [industry],
+  };
+  if (sz) {
+    const [mn, mx] = sz.split(',');
+    body.organization_num_employees_ranges = [`${mn},${mx}`];
+  }
+  if (own) body.organization_types = [own];
+  const r = await fetch('/apollo/orgs', { method:'POST', headers:{'Content-Type':'application/json','X-Apollo-Key':apk()}, body:JSON.stringify(body) });
+  const d = await r.json(); raw.apollo_orgs = d;
+  if (!r.ok) throw new Error(`Apollo orgs HTTP ${r.status}: ${JSON.stringify(d).slice(0,200)}`);
+  return d.organizations||[];
+}
+
+async function apolloPeople(orgId) {
+  const maxc = 5;
+  const kw = document.getElementById('titlekw').value.trim();
+  const body = { organization_ids:[orgId], page:1, per_page:maxc, person_seniorities:['owner','founder','c_suite','partner','director','manager'] };
+  if (kw) body.q_keywords = kw;
+  const r = await fetch('/apollo/people', { method:'POST', headers:{'Content-Type':'application/json','X-Apollo-Key':apk()}, body:JSON.stringify(body) });
+  if (!r.ok) return [];
+  const d = await r.json(); return d.people||[];
+}
+
+async function hunterDomain(domain) {
+  const r = await fetch(`/hunter/domain?domain=${encodeURIComponent(domain)}&limit=5`, { headers:{'X-Hunter-Key':HUNTER_KEY} });
+  if (!r.ok) return [];
+  const d = await r.json(); raw['hunter_'+domain]=d; return d.data?.emails||[];
+}
+
+async function hunterVerify(email) {
+  const r = await fetch(`/hunter/verify?email=${encodeURIComponent(email)}`, { headers:{'X-Hunter-Key':HUNTER_KEY} });
+  if (!r.ok) return null;
+  const d = await r.json(); return d.data||null;
+}
+
+async function openCorporates(keyword) {
+  const country = document.getElementById('country').value;
+  const maxo = document.getElementById('maxo').value;
+  const q = keyword ? `&q=${encodeURIComponent(keyword)}` : '';
+  const r = await fetch(`/sources/opencorporates?country=${encodeURIComponent(country)}${q}&per_page=${maxo}`);
+  if (!r.ok) return [];
+  const d = await r.json(); raw.opencorporates = d; return d.companies||[];
+}
+
+async function googlePlaces(query) {
+  const key = gk();
+  if (!key) return [];
+  const r = await fetch(`/sources/places?query=${encodeURIComponent(query)}`, { headers:{'X-Google-Key':key} });
+  if (!r.ok) return [];
+  const d = await r.json(); raw.googlePlaces = d; return d.places||[];
+}
+
+async function googlePlaceDetails(placeId) {
+  const key = gk();
+  if (!key || !placeId) return {};
+  const r = await fetch(`/sources/placedetails?place_id=${encodeURIComponent(placeId)}`, { headers:{'X-Google-Key':key} });
+  if (!r.ok) return {};
+  return await r.json();
+}
+
+async function clearbitEnrich(domain, name) {
+  const key = cbk();
+  const params = key && domain ? `domain=${encodeURIComponent(domain)}` : `name=${encodeURIComponent(name||'')}`;
+  const headers = key ? {'X-Clearbit-Key':key} : {};
+  const r = await fetch(`/sources/clearbit?${params}`, { headers });
+  if (!r.ok) return null;
+  return await r.json();
+}
+
+async function legalDirectories() {
+  const country = document.getElementById('country').value;
+  const r = await fetch(`/sources/legal?country=${encodeURIComponent(country)}&source=all`);
+  if (!r.ok) return { directories:[], firms:[] };
+  const d = await r.json(); raw.legal = d; return d;
+}
+
+// ── merge helpers ────────────────────────────────────────────────────────────
+function addCompany(co) {
+  const existing = companies.find(c => c.name.toLowerCase() === co.name.toLowerCase() || (co.domain && c.domain && co.domain === c.domain));
+  if (existing) {
+    // merge fields
+    Object.keys(co).forEach(k => { if (co[k] && !existing[k]) existing[k] = co[k]; });
+    if (!existing.sources.includes(co.source)) existing.sources.push(co.source);
+    return existing;
+  }
+  co.sources = [co.source];
+  co.id = co.id || ('co_' + Math.random().toString(36).slice(2));
+  companies.push(co);
+  return co;
+}
+
+function addContact(c) {
+  if (!c.email) return;
+  const existing = contacts.find(x => x.email === c.email);
+  if (existing) {
+    if (!existing.sources.includes(c.source)) existing.sources.push(c.source);
+    return;
+  }
+  c.sources = [c.source];
+  contacts.push(c);
+}
+
+// ── main search ──────────────────────────────────────────────────────────────
+async function run() {
+  contacts = []; companies = []; directories = []; raw = {};
+  const btn = document.getElementById('rbtn');
+  btn.disabled = true; btn.innerHTML = '<span class="spin"></span> Searching all sources…';
+  document.getElementById('res').style.display = 'none';
+  document.getElementById('log').innerHTML = '';
+  sp(0);
+
+  const country = document.getElementById('country').value;
+  const industry = document.getElementById('industry').value;
+  const city = document.getElementById('city').value.trim();
+  let sourcesUsed = 0;
+
+  try {
+    // ── Step 1: Apollo ──────────────────────────────────────────────────────
+    if (srcEnabled('apollo')) {
+      lg('Apollo — searching organizations…');
+      try {
+        const orgs = await apolloOrgs();
+        lg(`Apollo → ${orgs.length} organizations`, 'ok');
+        sourcesUsed++;
+        for (const o of orgs) {
+          const co = addCompany({
+            id: o.id, name: o.name||'', source: 'Apollo',
+            domain: o.primary_domain||(o.website_url||'').replace(/https?:\/\//,'').split('/')[0]||'',
+            city: o.city||'', country: o.country||'',
+            employees: o.num_employees||'', industry: o.industry||'',
+            founded: o.founded_year||'', linkedin: o.linkedin_url||'',
+            address: '', phone: '', companyType: '',
+          });
+          if (srcEnabled('apollo') && o.id) {
+            try {
+              const ppl = await apolloPeople(o.id);
+              for (const p of ppl) {
+                const em = p.email||p.contact?.email||'';
+                if (em) addContact({ companyId:co.id, company:co.name, name:[p.first_name,p.last_name].filter(Boolean).join(' '), title:p.title||'', email:em, confidence:p.email_confidence!=null?Math.round(p.email_confidence*100):null, verification:p.email_status||null, source:'Apollo', linkedin:p.linkedin_url||'', phone:'' });
+              }
+            } catch(e) { lg(`Apollo people failed for ${o.name}: ${e.message}`, 'warn'); }
+          }
+          await sleep(200);
+        }
+      } catch(e) { lg(`Apollo error: ${e.message}`, 'err'); }
+    }
+    sp(20);
+
+    // ── Step 2: Hunter on known domains ────────────────────────────────────
+    if (srcEnabled('hunter')) {
+      const withDomain = companies.filter(c => c.domain);
+      lg(`Hunter — domain search on ${withDomain.length} domains…`);
+      sourcesUsed++;
+      for (const co of withDomain) {
+        try {
+          const emails = await hunterDomain(co.domain);
+          for (const e of emails) {
+            addContact({ companyId:co.id, company:co.name, name:[e.first_name,e.last_name].filter(Boolean).join(' '), title:e.position||'', email:e.value, confidence:e.confidence||null, verification:e.verification?.status||null, source:'Hunter', linkedin:e.linkedin||'', phone:'' });
+          }
+        } catch(e) { lg(`Hunter failed for ${co.domain}`, 'warn'); }
+        await sleep(250);
+      }
+    }
+    sp(35);
+
+    // ── Step 3: OpenCorporates ─────────────────────────────────────────────
+    if (srcEnabled('opencorporates')) {
+      lg(`OpenCorporates — searching ${country} registry…`);
+      try {
+        // Use industry keyword as search term
+        const ocCompanies = await openCorporates('');
+        lg(`OpenCorporates → ${ocCompanies.length} registered companies`, 'ok');
+        sourcesUsed++;
+        for (const oc of ocCompanies) {
+          addCompany({
+            name: oc.name, source: 'OpenCorporates',
+            domain: '', city: '', country,
+            employees: '', industry, founded: oc.incorporationDate||'',
+            address: oc.registeredAddress||'', phone: '',
+            companyType: oc.companyType||'',
+            opencorporatesUrl: oc.opencorporatesUrl||'',
+            companyNumber: oc.companyNumber||'',
+            linkedin: '',
+          });
+        }
+      } catch(e) { lg(`OpenCorporates error: ${e.message}`, 'warn'); }
+    }
+    sp(50);
+
+    // ── Step 4: Google Places ──────────────────────────────────────────────
+    if (srcEnabled('googleplaces')) {
+      if (!gk()) {
+        lg('Google Places — skipped (no API key provided)', 'warn');
+      } else {
+        const placeQuery = `${industry} firms in ${city||country}`;
+        lg(`Google Places — searching: "${placeQuery}"…`);
+        try {
+          const places = await googlePlaces(placeQuery);
+          lg(`Google Places → ${places.length} results`, 'ok');
+          sourcesUsed++;
+          for (const p of places) {
+            // Get website + phone via Place Details
+            let website = '', phone = '';
+            if (p.placeId) {
+              try {
+                const det = await googlePlaceDetails(p.placeId);
+                website = det.website||''; phone = det.phone||'';
+              } catch(_) {}
+              await sleep(150);
+            }
+            const domain = website ? website.replace(/https?:\/\//,'').split('/')[0] : '';
+            const co = addCompany({ name:p.name, source:'Google Places', domain, city:city||country, country, employees:'', industry, founded:'', address:p.address||'', phone, companyType:'', linkedin:'' });
+            // If we got a domain, run Hunter on it
+            if (domain && srcEnabled('hunter')) {
+              try {
+                const emails = await hunterDomain(domain);
+                for (const e of emails) {
+                  addContact({ companyId:co.id, company:co.name, name:[e.first_name,e.last_name].filter(Boolean).join(' '), title:e.position||'', email:e.value, confidence:e.confidence||null, verification:e.verification?.status||null, source:'Hunter', linkedin:e.linkedin||'', phone });
+                }
+              } catch(_) {}
+              await sleep(200);
+            }
+          }
+        } catch(e) { lg(`Google Places error: ${e.message}`, 'warn'); }
+      }
+    }
+    sp(65);
+
+    // ── Step 5: Clearbit enrichment on domains ─────────────────────────────
+    if (srcEnabled('clearbit')) {
+      const toEnrich = companies.filter(c => c.domain || c.name).slice(0, 15);
+      lg(`Clearbit — enriching ${toEnrich.length} companies…`);
+      sourcesUsed++;
+      let enriched = 0;
+      for (const co of toEnrich) {
+        try {
+          const cb = await clearbitEnrich(co.domain, co.name);
+          if (cb && cb.found) {
+            if (!co.employees && cb.employeeCount) co.employees = cb.employeeCount;
+            if (!co.founded && cb.foundedYear) co.founded = cb.foundedYear;
+            if (!co.phone && cb.phone) co.phone = cb.phone;
+            if (!co.linkedin && cb.linkedin) co.linkedin = cb.linkedin;
+            if (!co.domain && cb.domain) co.domain = cb.domain;
+            enriched++;
+          }
+        } catch(_) {}
+        await sleep(150);
+      }
+      lg(`Clearbit → enriched ${enriched} companies`, 'ok');
+    }
+    sp(78);
+
+    // ── Step 6: Legal directories ──────────────────────────────────────────
+    if (srcEnabled('legal')) {
+      lg(`Legal directories — fetching ${country} listings…`);
+      try {
+        const legal = await legalDirectories();
+        directories = legal.directories || [];
+        const legalFirms = legal.firms || [];
+        lg(`Legal directories → ${directories.length} directories, ${legalFirms.length} firms found`, 'ok');
+        sourcesUsed++;
+        for (const f of legalFirms) {
+          addCompany({ name:f.name, source:f.source||'Legal Directory', domain:'', city:'', country, employees:'', industry, founded:'', address:'', phone:'', companyType:'Law firm', linkedin:'', url:f.url||'' });
+        }
+      } catch(e) { lg(`Legal directories error: ${e.message}`, 'warn'); }
+    }
+    sp(88);
+
+    // ── Step 7: Verify unverified emails via Hunter ─────────────────────────
+    if (srcEnabled('hunter')) {
+      const toVerify = contacts.filter(c => !c.verification && c.email).slice(0, 20);
+      if (toVerify.length) {
+        lg(`Hunter — verifying ${toVerify.length} emails…`);
+        for (let i=0; i<toVerify.length; i++) {
+          sp(88+(i/toVerify.length)*10);
+          try {
+            const v = await hunterVerify(toVerify[i].email);
+            if (v) { toVerify[i].verification = v.status; if(v.score!=null) toVerify[i].confidence = v.score; }
+          } catch(_) {}
+          await sleep(200);
+        }
+        lg('Email verification done', 'ok');
+      }
+    }
+
+    sp(100);
+    render(sourcesUsed);
+    lg(`Done — ${companies.length} companies · ${contacts.length} contacts · ${contacts.filter(c=>c.verification==='valid').length} verified · ${sourcesUsed} sources`, 'ok');
+
+  } catch(e) { lg('Fatal error: '+e.message, 'err'); console.error(e); }
+  btn.disabled = false; btn.textContent = 'Search again →';
+}
+
+// ── render ───────────────────────────────────────────────────────────────────
+function srcBadgeClass(src) {
+  const m = { 'Apollo':'src-apollo','Hunter':'src-hunter','OpenCorporates':'src-oc','Google Places':'src-gp','Clearbit':'src-cb','Legal 500':'src-legal','Chambers & Partners':'src-legal','Legal Directory':'src-legal' };
+  return m[src] || 'src-oc';
+}
+function cdot(s) { if(s==null)return'<span class="cdot dz"></span>—';const cl=s>=80?'dg':s>=50?'da':'dr';return`<span class="cdot ${cl}"></span>${s}%`; }
+function vbadge(st) { if(!st)return'<span class="vbadge vunk">unknown</span>';const m={valid:'vok',invalid:'verr',accept_all:'vwarn',unknown:'vunk'};return`<span class="vbadge ${m[st]||'vunk'}">${esc(st)}</span>`; }
+
+function render(sourcesUsed) {
+  document.getElementById('res').style.display = '';
+  document.getElementById('m-co').textContent = companies.length;
+  document.getElementById('m-ct').textContent = contacts.length;
+  document.getElementById('m-em').textContent = contacts.filter(c=>c.email).length;
+  document.getElementById('m-vf').textContent = contacts.filter(c=>c.verification==='valid').length;
+  document.getElementById('m-src').textContent = sourcesUsed;
+  document.getElementById('ct-sum').textContent = `${contacts.length} contacts · ${companies.length} companies`;
+
+  // contacts table
+  document.getElementById('ctb').innerHTML = contacts.length
+    ? contacts.map(c => `<tr>
+        <td style="font-weight:500;white-space:nowrap;max-width:130px;overflow:hidden;text-overflow:ellipsis" title="${esc(c.company)}">${esc(c.company)}</td>
+        <td style="white-space:nowrap">${esc(c.name||'—')}</td>
+        <td style="color:var(--muted);font-size:11px;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(c.title||'—')}</td>
+        <td class="eml">${esc(c.email||'—')}</td>
+        <td>${cdot(c.confidence)}</td>
+        <td>${vbadge(c.verification)}</td>
+        <td style="font-size:11px;color:var(--muted)">${esc(c.phone||'—')}</td>
+        <td>${(c.sources||[c.source]).map(s=>`<span class="sbadge ${srcBadgeClass(s)}">${esc(s)}</span>`).join(' ')}</td>
+        <td style="white-space:nowrap">${c.linkedin?`<a href="${esc(c.linkedin)}" target="_blank" style="color:var(--accent);font-size:10px">LinkedIn</a>`:''}</td>
+      </tr>`).join('')
+    : '<tr><td colspan="9" style="text-align:center;padding:2rem;color:var(--muted)">No contacts found. Try enabling more sources or broadening parameters.</td></tr>';
+
+  // companies table
+  document.getElementById('cob').innerHTML = companies.map(co => {
+    const n = contacts.filter(c=>c.companyId===co.id).length;
+    const domLink = co.domain ? `<a href="https://${esc(co.domain)}" target="_blank" style="color:var(--accent);font-size:10px">${esc(co.domain)}</a>` : (co.opencorporatesUrl ? `<a href="${esc(co.opencorporatesUrl)}" target="_blank" style="color:var(--accent);font-size:10px">registry</a>` : '—');
+    return `<tr>
+      <td style="font-weight:500">${esc(co.name)}</td>
+      <td>${domLink}</td>
+      <td style="color:var(--muted);font-size:11px;max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(co.address||co.city||'—')}</td>
+      <td style="color:var(--muted)">${esc(co.country||'—')}</td>
+      <td style="color:var(--muted)">${co.employees||'—'}</td>
+      <td style="color:var(--muted);font-size:11px">${esc(co.companyType||co.industry||'—')}</td>
+      <td style="color:var(--muted)">${co.founded||'—'}</td>
+      <td style="font-weight:500;color:${n>0?'var(--green)':'var(--muted)'}">${n}</td>
+      <td>${(co.sources||[co.source]).map(s=>`<span class="sbadge ${srcBadgeClass(s)}">${esc(s)}</span>`).join(' ')}</td>
+    </tr>`;
+  }).join('');
+
+  // directories tab
+  const dg = document.getElementById('dir-grid');
+  dg.innerHTML = directories.length
+    ? directories.map(d => `<div class="dir-card"><h4>${esc(d.name)}</h4><p>${esc(d.note||'')}</p>${d.url?`<a href="${esc(d.url)}" target="_blank">Open directory →</a>`:''}</div>`).join('')
+    : '<p style="color:var(--muted);font-size:12px">No directories found — select a country and enable Legal directories source.</p>';
+
+  document.getElementById('rp').textContent = JSON.stringify(raw, null, 2);
+}
+
+// ── CSV export ────────────────────────────────────────────────────────────────
+function exp(type) {
+  let rows, fn;
+  if (type === 'contacts') {
+    rows = [['Company','Name','Title','Email','Confidence %','Verification','Phone','Sources','LinkedIn']];
+    contacts.forEach(c => rows.push([c.company,c.name,c.title,c.email,c.confidence??'',c.verification??'',c.phone||'',(c.sources||[]).join(';'),c.linkedin||'']));
+    fn = 'contacts.csv';
+  } else {
+    rows = [['Company','Domain','Address','Country','Employees','Type','Founded','Sources','Contacts found','LinkedIn','OC URL']];
+    companies.forEach(co => {
+      const n = contacts.filter(c=>c.companyId===co.id).length;
+      rows.push([co.name,co.domain||'',co.address||'',co.country||'',co.employees||'',co.companyType||co.industry||'',co.founded||'',(co.sources||[]).join(';'),n,co.linkedin||'',co.opencorporatesUrl||'']);
+    });
+    fn = 'companies.csv';
+  }
+  const csv = rows.map(r => r.map(v => '"'+String(v==null?'':v).replace(/"/g,'""')+'"').join(',')).join('\n');
+  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv],{type:'text/csv'})); a.download = fn; a.click();
+}
+</script>
+</body>
+</html>
