@@ -344,8 +344,9 @@ async function apolloOrgs() {
   if (own) body.organization_types = [own];
   const r = await fetch('/apollo/orgs', { method:'POST', headers:{'Content-Type':'application/json','X-Apollo-Key':apk()}, body:JSON.stringify(body) });
   const d = await r.json(); raw.apollo_orgs = d;
-  if (!r.ok) throw new Error(`Apollo orgs HTTP ${r.status}: ${JSON.stringify(d).slice(0,200)}`);
-  return d.organizations||[];
+  if (!r.ok) throw new Error(`Apollo orgs HTTP ${r.status}: ${JSON.stringify(d).slice(0,300)}`);
+  // organizations/search returns .organizations[], people/search returns .people[]
+  return d.organizations || d.accounts || [];
 }
 
 async function apolloPeople(orgId) {
@@ -506,7 +507,7 @@ async function run() {
       try {
         // Use industry keyword as search term
         const ocCompanies = await openCorporates('');
-        lg(`OpenCorporates → ${ocCompanies.length} registered companies`, 'ok');
+        lg(`OpenCorporates → ${ocCompanies.length} registered companies (debug: ${JSON.stringify(raw.opencorporates?.debug||{})})`, ocCompanies.length>0?'ok':'warn');
         sourcesUsed++;
         for (const oc of ocCompanies) {
           addCompany({
