@@ -4,8 +4,17 @@ export async function onRequestPost({ request }) {
   if (!apolloKey) return new Response(JSON.stringify({ error: 'Missing Apollo key' }), { status: 401, headers: cors });
   let body;
   try { body = await request.json(); } catch { return new Response(JSON.stringify({ error: 'Invalid JSON' }), { status: 400, headers: cors }); }
-  body.api_key = apolloKey;
-  const resp = await fetch('https://api.apollo.io/v1/mixed_people/search', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-cache' }, body: JSON.stringify(body) });
+  // Do NOT put api_key in body — Apollo now requires it in X-Api-Key header
+  delete body.api_key;
+  const resp = await fetch('https://api.apollo.io/v1/mixed_people/search', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-cache',
+      'X-Api-Key': apolloKey,
+    },
+    body: JSON.stringify(body),
+  });
   const data = await resp.json();
   return new Response(JSON.stringify(data), { status: resp.status, headers: { ...cors, 'Content-Type': 'application/json' } });
 }
